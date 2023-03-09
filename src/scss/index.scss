@@ -1,0 +1,13 @@
+@use 'config' as *;
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: $spartan;
+   font-size: 18px;
+}
+
+body {
+   padding: 20px;
+}
