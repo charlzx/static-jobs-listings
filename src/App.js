@@ -6,13 +6,12 @@ function App() {
 
   const [data, setData] = useState(datafile)
   
-  console.log(data)
   return (
     <div>
       <header></header>
 
       <div className='listDiv'>       
-        <List data={data} setData={setData}/>
+        <List data={data} setData={setData} datafile={datafile}/>
       </div>
     </div>
   );

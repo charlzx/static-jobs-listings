@@ -30,8 +30,24 @@ header {
    padding: 50px 50px;
 }
 
+.reset-data {
+   margin: 20px;
+   padding: 7.5px 15px;
+   background-color: $white;
+   color: $cyan;
+   outline: 0;
+   box-shadow: 0 14px 15px -6px lighten($cyan, 35%);
+   border: 1px solid transparent;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: .25s ease-in-out;
 
-.list-item {
+   &:hover {
+      transform: scale(1.2);
+   }
+}
+
+.list-item, .list-filter {
    margin: 20px;
    padding: 35px;
    display: flex;
@@ -111,4 +127,8 @@ header {
    span {
       padding: 0 7.5px 0 0;
    }
+}
+
+.list-filter {
+   margin-bottom: 40px;
 }
