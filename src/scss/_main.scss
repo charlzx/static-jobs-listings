@@ -1,0 +1,139 @@
+@use 'config' as *;
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: $spartan;
+   font-size: 18px;
+}
+
+body {
+   background-color: $cyan-bg;
+}
+
+li {
+   list-style-type: none;
+}
+
+header {
+   width: 100%;
+   height: 100px;
+   background: url('../src/images/bg-header-desktop.svg');
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   background-color: $cyan;
+}
+
+.listDiv {
+   padding: 50px 50px;
+}
+
+.reset-data {
+   margin: 20px;
+   padding: 7.5px 15px;
+   background-color: $white;
+   color: $cyan;
+   outline: 0;
+   box-shadow: 0 14px 15px -6px lighten($cyan, 35%);
+   border: 1px solid transparent;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: .25s ease-in-out;
+
+   &:hover {
+      transform: scale(1.2);
+   }
+}
+
+.list-item, .list-filter {
+   margin: 20px;
+   padding: 35px;
+   display: flex;
+   position: relative;
+   border-radius: 5px;
+   align-items: center;
+   background-color: $white;
+   border-left: 5px solid transparent;
+   box-shadow: 0 14px 15px -6px lighten($cyan, 35%);
+   
+   & > img {
+      margin-right: 30px;
+   } 
+}
+
+.list-item > div {
+   display: flex;
+   align-items: center;
+}
+
+.sidebar {
+   border-left: 5px solid $cyan;
+}
+
+.item-tags {
+   display: flex;
+   position: absolute;
+   right: 35px;
+
+   li {
+      color: $cyan;
+      background-color: $cyan-fl;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 2.5px;
+      padding: 10px;
+      scale: .85;
+   }
+}
+
+.item-section > div {
+   display: flex;
+   align-items: center;
+
+   p {
+      margin-right: 15px;
+      color: $cyan;
+   }
+
+   span {
+      color: $white;
+      font-size: 11.5px;
+      margin-right: 10px;
+      text-transform: uppercase;
+      padding: 6.5px 10px 3.5px 10px;
+      border-radius: 10px;
+      font-weight: 700;
+   }
+   span.item-new {
+      background-color: $cyan;
+   }
+   span.item-featured {
+      background-color: $cyan-gray;
+   }
+}
+
+.item-section p {
+   font-weight: 700;
+   padding: 8.5px 0;
+}
+
+.item-position {
+   color: $cyan-gray;
+   font-size: 115%;
+}
+
+.item-info {
+   color: $cyan-dark;
+
+   span {
+      font-weight: 400;
+      padding: 0 7.5px 0 0;
+   }
+}
+
+.list-filter {
+   margin-bottom: 40px;
+}
