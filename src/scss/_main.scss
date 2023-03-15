@@ -136,4 +136,37 @@ header {
 
 .list-filter {
    margin-bottom: 40px;
+
+   & > div {
+      display: flex;
+      background-color: $cyan-fl;
+      color: $cyan;
+      padding: 7.5px 10px;
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-right: 15px;
+      font-weight: 700;
+      
+      p:not(.cancel) {
+         padding-right: 25px;
+      }
+
+      p.cancel {
+         background-color: $cyan;
+         color: $cyan-fl;
+         position: absolute;
+         padding: 2.5px;
+         right: 6.5px;
+         top: 6.5px;
+         scale: 2;
+         cursor: pointer;
+         transition: .25s ease-in-out;
+         font-weight: normal;
+
+         &:hover {
+            background-color: $cyan-gray;
+         }
+      }
+   }
 }

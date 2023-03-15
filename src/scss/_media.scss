@@ -24,11 +24,16 @@
    .item-section {
       margin-bottom: 15px;
       padding-bottom: 10px;
-      border-bottom: 1px solid $cyan-gray;
+      border-bottom: 1px dashed $cyan-gray;
    }
 }
 
 @media (max-width: 815px){
+   header {
+      background: url('../src/images/bg-header-mobile.svg');
+      background-color: $cyan;
+   }
+
    .list-item {
       margin: 60px 5%;
       padding: 45px 35px 35px 35px;

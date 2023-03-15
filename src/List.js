@@ -20,9 +20,18 @@ const List = ({data, setData, datafile}) => {
    }
 
    const [filterList, setFilterList] = useState([])
+
    return (
       <>
-         {filterList.length > 0 && <div className="list-filter"></div>}
+         {filterList.length > 0 && <div className="list-filter">
+         <div>
+         <p>frontend</p>
+         <p className="cancel">×</p>
+      </div><div>
+      <p>frontend</p>
+      <p className="cancel">×</p>
+   </div>
+         </div>}
          { data.length !== 10 && <button className="reset-data" onClick={() => {setData(datafile)}}>reset</button>}
 
          {data.map((item) => (
