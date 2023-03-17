@@ -31,19 +31,18 @@ header {
 }
 
 .reset-data {
-   margin: 20px;
-   padding: 7.5px 15px;
-   background-color: $white;
-   color: $cyan;
    outline: 0;
-   box-shadow: 0 14px 15px -6px lighten($cyan, 35%);
-   border: 1px solid transparent;
-   border-radius: 5px;
+   color: $cyan;
    cursor: pointer;
+   border: 1px solid transparent;
    transition: .25s ease-in-out;
+   background-color: transparent;
+   font-weight: bold;
+   position: absolute;
+   right: 25px;
 
    &:hover {
-      transform: scale(1.2);
+      border-bottom: 1px solid $cyan;
    }
 }
 
@@ -136,37 +135,44 @@ header {
 
 .list-filter {
    margin-bottom: 40px;
+   position: relative;
+}
 
-   & > div {
-      display: flex;
-      background-color: $cyan-fl;
-      color: $cyan;
-      padding: 7.5px 10px;
-      position: relative;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-right: 25px;
-      font-weight: 700;
-      
-      p:not(.cancel) {
-         padding-right: 25px;
-      }
 
-      p.cancel {
-         background-color: $cyan;
-         color: $cyan-fl;
-         position: absolute;
-         padding: 2.5px;
-         right: 6.5px;
-         top: 6.5px;
-         scale: 2;
-         cursor: pointer;
-         transition: .25s ease-in-out;
-         font-weight: normal;
+.filter-items {
+   display: flex;
+}
 
-         &:hover {
-            background-color: $cyan-gray;
-         }
+.filter-items > div {
+   display: flex;
+   background-color: $cyan-fl;
+   color: $cyan;
+   padding: 7.5px 10px;
+   position: relative;
+   border-radius: 5px;
+   overflow: hidden;
+   // margin-right: 25px;
+   font-weight: 700;
+   scale: .8;
+   
+   p:not(.cancel) {
+      padding-right: 25px;
+   }
+
+   p.cancel {
+      background-color: $cyan;
+      color: $cyan-fl;
+      position: absolute;
+      padding: 2.5px;
+      right: 6.5px;
+      top: 6.5px;
+      scale: 2;
+      cursor: pointer;
+      transition: .25s ease-in-out;
+      font-weight: normal;
+
+      &:hover {
+         background-color: $cyan-gray;
       }
    }
 }

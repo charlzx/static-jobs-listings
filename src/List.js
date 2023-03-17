@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const List = ({data, setData, datafile}) => {
@@ -7,39 +7,48 @@ const List = ({data, setData, datafile}) => {
    const filterRole = (tag) => {
       const $new = data.filter(newData => newData.role === tag)
       setData($new)
-      filterList.includes(tag) == false && filterList.push(tag)
+      filterList.includes(tag) === false && setFilterList(filterList.concat(tag))
    }
    const filterLevel = (tag) => {
       const $new = data.filter(newData => newData.level === tag)
       setData($new)
-      filterList.includes(tag) == false && filterList.push(tag)
+      filterList.includes(tag) === false && setFilterList(filterList.concat(tag))
+
    }
    const filterTools = (tag) => {
       const $new = data.filter(newData => newData.tools.includes(tag))
       setData($new)
-      filterList.includes(tag) == false && filterList.push(tag)
+      filterList.includes(tag) === false && setFilterList(filterList.concat(tag))
+
    }
    const filterLang = (tag) => {
       const $new = data.filter(newData => newData.languages.includes(tag))
       setData($new)
-      filterList.includes(tag) == false && filterList.push(tag)
+      filterList.includes(tag) === false && setFilterList(filterList.concat(tag))
+
    }
    
 
    return (
       <>
-         <div className="list-filter">
-            {filterList.length > 0 && filterList.map(item => (
-               <div>
-                  <p>{item}</p>
-                  <p className="cancel">×</p>
+         {filterList.length > 0 &&
+            <div className="list-filter">
+               <div className="filter-items">
+                  {filterList.map(item => (
+                     <div key={item}>
+                        <p>{item}</p>
+                        <p className="cancel" onClick={(e) => {
+                           let tagName = e.target.parentElement.children[0].innerHTML
+                           
+                           setFilterList(filterList.filter(tag => tag !== tagName))
+                        }}>×</p>
+                     </div>
+                  ))}
                </div>
-            ))}
-         </div>
-         
-         { data.length !== 10 && <button className="reset-data" onClick={() => {
-            console.log(filterList)
-            setData(datafile)}}>reset</button>}
+
+               <button className="reset-data" onClick={() => {setData(datafile); setFilterList([])}}>Clear</button>
+            </div>
+         }
 
          {data.map((item) => (
             <div className={`list-item ${item.featured && 'sidebar'}`} key={item.id}>

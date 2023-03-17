@@ -28,6 +28,17 @@
    }
 }
 
+@media (max-width: 925px){
+   .filter-items {
+      flex-wrap: wrap;
+      margin-right: 30px;
+
+      & > div {
+         margin: 10px 20px 10px 0;
+      }
+   }
+}
+
 @media (max-width: 815px){
    header {
       background: url('../src/images/bg-header-mobile.svg');
