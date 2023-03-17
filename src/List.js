@@ -1,42 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 const List = ({data, setData, datafile}) => {
+   const [filterList, setFilterList] = useState([])
+
    const filterRole = (tag) => {
-      const $new = data.filter(newData => newData.role == tag)
+      const $new = data.filter(newData => newData.role === tag)
       setData($new)
-      setFilterList('1')
+      filterList.includes(tag) == false && filterList.push(tag)
    }
    const filterLevel = (tag) => {
-      const $new = data.filter(newData => newData.level == tag)
+      const $new = data.filter(newData => newData.level === tag)
       setData($new)
+      filterList.includes(tag) == false && filterList.push(tag)
    }
    const filterTools = (tag) => {
       const $new = data.filter(newData => newData.tools.includes(tag))
       setData($new)
+      filterList.includes(tag) == false && filterList.push(tag)
    }
    const filterLang = (tag) => {
       const $new = data.filter(newData => newData.languages.includes(tag))
       setData($new)
+      filterList.includes(tag) == false && filterList.push(tag)
    }
-
-   const [filterList, setFilterList] = useState([])
+   
 
    return (
       <>
-         {filterList.length > 0 && <div className="list-filter">
-         <div>
-         <p>frontend</p>
-         <p className="cancel">×</p>
-      </div><div>
-      <p>frontend</p>
-      <p className="cancel">×</p>
-   </div>
-         </div>}
-         { data.length !== 10 && <button className="reset-data" onClick={() => {setData(datafile)}}>reset</button>}
+         <div className="list-filter">
+            {filterList.length > 0 && filterList.map(item => (
+               <div>
+                  <p>{item}</p>
+                  <p className="cancel">×</p>
+               </div>
+            ))}
+         </div>
+         
+         { data.length !== 10 && <button className="reset-data" onClick={() => {
+            console.log(filterList)
+            setData(datafile)}}>reset</button>}
 
          {data.map((item) => (
             <div className={`list-item ${item.featured && 'sidebar'}`} key={item.id}>
-               <img src={item.logo} draggable='false'/>
+               <img src={item.logo} draggable='false' alt=''/>
             
                <div>
                   <div className="item-section">
